@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orteconte — Soluções Ortopédicas em todo o Brasil</title>
+<meta name="description" content="Orteconte distribui produtos e equipamentos ortopédicos com cobertura nas cinco regiões do Brasil, suporte técnico especializado e atendimento próximo de clínicas e hospitais.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f7f8fb;
+    --surface: #ffffff;
+    --surface-muted: #eef1f7;
+    --text: #1b2333;
+    --text-muted: #5a6478;
+    --border: #e1e5ee;
+    --brand: #1f6f78;
+    --brand-dark: #144951;
+    --brand-light: #e4f3f2;
+    --accent: #e8823c;
+    --shadow: 0 20px 45px -25px rgba(20, 30, 60, 0.35);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --font: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1420;
+      --surface: #161d2c;
+      --surface-muted: #1d2536;
+      --text: #eef1f7;
+      --text-muted: #a3aec4;
+      --border: #2a3244;
+      --brand: #4fb8ae;
+      --brand-dark: #8fd9cf;
+      --brand-light: #16302f;
+      --accent: #f0975a;
+      --shadow: 0 20px 45px -25px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* ---------- Header ---------- */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 16px;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .logo__mark {
+    display: grid;
+    place-items: center;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  nav[data-nav] {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  nav[data-nav] a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav[data-nav] a:hover { color: var(--brand); }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--brand);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    width: 42px; height: 42px;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 860px) {
+    .nav-toggle { display: block; }
+
+    nav[data-nav] {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    nav[data-nav].is-open { max-height: 400px; }
+
+    nav[data-nav] a {
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-cta { margin-top: 8px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: 72px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto;
+    height: 480px;
+    background: radial-gradient(60% 60% at 30% 20%, var(--brand-light), transparent 70%);
+    z-index: -1;
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 4vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+  }
+
+  .hero h1 span { color: var(--brand); }
+
+  .hero p.lead {
+    font-size: 1.08rem;
+    color: var(--text-muted);
+    max-width: 46ch;
+    margin: 0 0 30px;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn--primary {
+    background: var(--brand);
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat strong {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--brand-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .stat span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .hero__visual {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .hero__visual image-slot:first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding-block: 76px; }
+
+  .section-head {
+    max-width: 640px;
+    margin: 0 auto 44px;
+    text-align: center;
+  }
+
+  .section-head .eyebrow { margin-inline: auto; }
+
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+  }
+
+  .section-head p {
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Services ---------- */
+  .services {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+  }
+
+  .service-card__icon {
+    width: 48px; height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .service-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.08rem;
+  }
+
+  .service-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+
+  /* ---------- Region map + gallery ---------- */
+  .region-section__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  region-map { display: block; }
+
+  .region-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+  }
+
+  .region-map__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    font-family: inherit;
+    color: var(--text);
+  }
+
+  .region-map__item:hover { transform: translateY(-2px); }
+
+  .region-map__item.is-active {
+    border-color: var(--brand);
+    background: var(--brand-light);
+  }
+
+  .region-map__icon { font-size: 1.5rem; }
+
+  .region-map__name {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .region-map__states {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .region-detail {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+
+  .region-detail__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  .region-detail__head .icon {
+    font-size: 1.8rem;
+  }
+
+  .region-detail__head h3 {
+    margin: 0;
+    font-size: 1.35rem;
+  }
+
+  .region-detail__states {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0 0 6px;
+  }
+
+  .region-detail__blurb {
+    color: var(--text-muted);
+    margin: 0 0 24px;
+  }
+
+  .region-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  /* image-slot component styling */
+  .image-slot {
+    margin: 0;
+    display: block;
+  }
+
+  .image-slot__frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--ratio, 4/3);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--brand-light), var(--surface-muted));
+    border: 1px dashed var(--border);
+    display: grid;
+    place-items: center;
+  }
+
+  .image-slot--filled .image-slot__frame {
+    border-style: solid;
+    background: var(--surface-muted);
+  }
+
+  .image-slot__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-slot__icon {
+    font-size: 2rem;
+    opacity: 0.75;
+  }
+
+  .image-slot__label {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* ---------- Testimonials / trust ---------- */
+  .trust {
+    background: var(--brand-dark);
+    color: #fff;
+  }
+
+  .trust .section-head h2,
+  .trust .section-head p { color: #fff; }
+  .trust .section-head p { opacity: 0.85; }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .trust-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+
+  .trust-card p.quote {
+    margin: 0 0 16px;
+    font-size: 0.98rem;
+  }
+
+  .trust-card .who {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .contact-info__item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .contact-info__item .icon {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-sm);
+    background: var(--brand-light);
+    color: var(--brand-dark);
+  }
+
+  .contact-info__item h4 {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+  }
+
+  .contact-info__item p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  form[data-contact-form] {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 16px;
+  }
+
+  .field { display: grid; gap: 6px; }
+
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  .field input,
+  .field textarea {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    resize: vertical;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--brand);
+  }
+
+  .field input[aria-invalid="true"],
+  .field textarea[aria-invalid="true"] {
+    border-color: #d9534f;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding-block: 40px;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-grid nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-grid nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .footer-grid nav a:hover { color: var(--brand); }
+
+  small.copy {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  /* ---------- Back to top ---------- */
+  [data-back-to-top] {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: var(--brand);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: var(--shadow);
+    z-index: 60;
+  }
+
+  [data-back-to-top].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* ---------- Toasts ---------- */
+  [data-toast-container] {
+    position: fixed;
+    bottom: 22px;
+    left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 70;
+  }
+
+  .toast {
+    background: var(--text);
+    color: var(--bg);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    max-width: 320px;
+  }
+
+  .toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="logo" href="#top">
+      <span class="logo__mark" aria-hidden="true">O</span>
+      Orteconte
+    </a>
+
+    <nav data-nav aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#regioes">Regiões</a>
+      <a href="#confianca">Depoimentos</a>
+      <a href="#contato" class="nav-cta">Fale conosco</a>
+    </nav>
+
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+      ☰
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <span class="eyebrow">Distribuição ortopédica nacional</span>
+        <h1>Produtos ortopédicos com <span>presença em todo o Brasil</span></h1>
+        <p class="lead">
+          A Orteconte conecta clínicas, hospitais e profissionais de saúde a equipamentos
+          e produtos ortopédicos de qualidade, com logística regional e suporte técnico dedicado.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#regioes">Ver cobertura por região</a>
+          <a class="btn btn--ghost" href="#contato">Falar com um especialista</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat"><strong>5</strong><span>regiões atendidas</span></div>
+          <div class="stat"><strong>+120</strong><span>parceiros clínicos</span></div>
+          <div class="stat"><strong>24h</strong><span>suporte técnico</span></div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <image-slot label="Unidade central de distribuição" icon="🏥" ratio="16/9"></image-slot>
+        <image-slot label="Equipe técnica" icon="🩺"></image-slot>
+        <image-slot label="Linha de produtos" icon="🦴"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">O que fazemos</span>
+        <h2>Soluções completas para o seu negócio</h2>
+        <p>Da entrega ao pós-venda, cuidamos de cada etapa para que sua clínica tenha os produtos certos, na hora certa.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <div class="service-card__icon" aria-hidden="true">🚚</div>
+          <h3>Distribuição regional</h3>
+          <p>Centros logísticos estrategicamente posicionados para reduzir prazos de entrega em todo o país.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__icon" aria-hidden="true">🦿</div>
+          <h3>Equipamentos ortopédicos</h3>
+          <p>Órteses, próteses e equipamentos certificados, selecionados junto a fabricantes de referência.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__icon" aria-hidden="true">🧑‍⚕️</div>
+          <h3>Suporte técnico</h3>
+          <p>Equipe especializada disponível para orientar profissionais na escolha e uso dos produtos.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="service-card__icon" aria-hidden="true">📦</div>
+          <h3>Gestão de estoque</h3>
+          <p>Reposição programada e acompanhamento contínuo para clínicas e hospitais parceiros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Region map -->
+  <section id="regioes">
+    <div class="container region-section__layout">
+      <div class="section-head" data-reveal style="margin-bottom: 8px;">
+        <span class="eyebrow">Cobertura nacional</span>
+        <h2>Escolha uma região e veja nossa atuação</h2>
+        <p>A Orteconte está presente nas cinco regiões do Brasil, com parceiros e representantes locais.</p>
+      </div>
+
+      <div data-reveal>
+        <region-map selected="sudeste"></region-map>
+      </div>
+
+      <div class="region-detail" data-reveal id="region-detail">
+        <!-- Preenchido dinamicamente via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / testimonials -->
+  <section class="trust" id="confianca">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Quem confia na Orteconte</span>
+        <h2>Parceiros em todo o território nacional</h2>
+        <p>Clínicas e hospitais que contam com a Orteconte para manter seus estoques sempre completos.</p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-card" data-reveal>
+          <p class="quote">"A Orteconte reduziu nosso tempo de reposição de produtos em quase metade. Suporte muito atencioso."</p>
+          <p class="who">Clínica de Reabilitação — Sudeste</p>
+        </div>
+        <div class="trust-card" data-reveal>
+          <p class="quote">"Mesmo estando no interior do Nordeste, sempre recebemos os pedidos no prazo combinado."</p>
+          <p class="who">Hospital Regional — Nordeste</p>
+        </div>
+        <div class="trust-card" data-reveal>
+          <p class="quote">"Equipe técnica muito preparada para tirar dúvidas sobre órteses e próteses específicas."</p>
+          <p class="who">Centro Ortopédico — Sul</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contato">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Fale conosco</span>
+        <h2>Vamos conversar sobre a sua região</h2>
+        <p>Preencha o formulário e um especialista da Orteconte entrará em contato.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-reveal>
+          <div class="contact-info__item">
+            <span class="icon" aria-hidden="true">📍</span>
+            <div>
+              <h4>Sede e distribuição</h4>
+              <p>São Paulo — SP, com unidades regionais nas cinco regiões do Brasil.</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <span class="icon" aria-hidden="true">📞</span>
+            <div>
+              <h4>Telefone</h4>
+              <p>(11) 4000-0000</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <span class="icon" aria-hidden="true">✉️</span>
+            <div>
+              <h4>E-mail</h4>
+              <p>contato@orteconte.com.br</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <span class="icon" aria-hidden="true">🕒</span>
+            <div>
+              <h4>Atendimento</h4>
+              <p>Segunda a sexta, 8h às 18h — suporte técnico 24h para parceiros.</p>
+            </div>
+          </div>
+        </div>
+
+        <form data-contact-form data-reveal novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="logo" href="#top">
+      <span class="logo__mark" aria-hidden="true">O</span>
+      Orteconte
+    </a>
+    <nav aria-label="Links do rodapé">
+      <a href="#servicos">Serviços</a>
+      <a href="#regioes">Regiões</a>
+      <a href="#confianca">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <small class="copy">© <span data-current-year>2026</span> Orteconte. Todos os direitos reservados.</small>
+  </div>
+</footer>
+
+<button data-back-to-top aria-label="Voltar ao topo">↑</button>
+<div data-toast-container aria-live="polite"></div>
+
+<script type="module" src="./image-slot.js"></script>
+<script type="module" src="./region-map.js"></script>
+<script type="module" src="./support.js"></script>
+<script type="module">
+  import { REGIONS } from "./region-map.js";
+
+  const detail = document.getElementById("region-detail");
+  const map = document.querySelector("region-map");
+
+  function renderRegion(region) {
+    detail.innerHTML = `
+      <div class="region-detail__head">
+        <span class="icon" aria-hidden="true">${region.icon}</span>
+        <h3>${region.name}</h3>
+      </div>
+      <p class="region-detail__states">${region.states}</p>
+      <p class="region-detail__blurb">${region.blurb}</p>
+      <div class="region-gallery">
+        <image-slot label="Unidade regional — ${region.name}" icon="🏥"></image-slot>
+        <image-slot label="Equipe local" icon="🩺"></image-slot>
+        <image-slot label="Produtos em estoque" icon="🦴"></image-slot>
+        <image-slot label="Clínicas parceiras" icon="🤝"></image-slot>
+      </div>
+    `;
+  }
+
+  map.addEventListener("region-change", (event) => renderRegion(event.detail));
+
+  // Renderiza a região inicial assim que o componente estiver pronto.
+  queueMicrotask(() => {
+    renderRegion(REGIONS.find((r) => r.id === map.selected) || REGIONS[0]);
+  });
+</script>
+
+</body>
+</html>
