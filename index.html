@@ -162,14 +162,18 @@
       align-items: flex-start;
       gap: 4px;
       background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 24px 20px;
+      border-bottom: 0 solid var(--border);
+      padding: 0 24px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.25s ease;
+      transition: max-height 0.25s ease, padding 0.25s ease;
     }
 
-    nav[data-nav].is-open { max-height: 400px; }
+    nav[data-nav].is-open {
+      max-height: 400px;
+      padding: 12px 24px 20px;
+      border-bottom-width: 1px;
+    }
 
     nav[data-nav] a {
       width: 100%;
