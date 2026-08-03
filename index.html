@@ -510,13 +510,9 @@
 
   /* ---------- Testimonials / trust ---------- */
   .trust {
-    background: var(--brand-dark);
-    color: #fff;
+    background: var(--surface);
+    border-block: 1px solid var(--border);
   }
-
-  .trust .section-head h2,
-  .trust .section-head p { color: #fff; }
-  .trust .section-head p { opacity: 0.85; }
 
   .trust-grid {
     display: grid;
@@ -525,8 +521,8 @@
   }
 
   .trust-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 24px;
   }
@@ -538,7 +534,7 @@
 
   .trust-card .who {
     font-size: 0.85rem;
-    opacity: 0.8;
+    color: var(--text-muted);
   }
 
   /* ---------- Contact ---------- */
