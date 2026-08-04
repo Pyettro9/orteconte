@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orteconte — Soluções Ortopédicas em todo o Brasil</title>
-<meta name="description" content="Orteconte distribui produtos e equipamentos ortopédicos com cobertura nas cinco regiões do Brasil, suporte técnico especializado e atendimento próximo de clínicas e hospitais.">
+<title>Orteconte — Soluções Ortopédicas em Minas Gerais e Espírito Santo</title>
+<meta name="description" content="Orteconte distribui produtos e equipamentos ortopédicos em Minas Gerais e Espírito Santo, com suporte técnico especializado e atendimento próximo de clínicas e hospitais.">
 <style>
   :root {
     color-scheme: light dark;
@@ -380,95 +380,20 @@
     font-size: 0.94rem;
   }
 
-  /* ---------- Region map + gallery ---------- */
-  .region-section__layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  region-map { display: block; }
-
-  .region-map {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 14px;
-  }
-
-  .region-map__item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    text-align: left;
-    padding: 18px;
-    border-radius: var(--radius-md);
-    border: 1.5px solid var(--border);
-    background: var(--surface);
-    cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    font-family: inherit;
-    color: var(--text);
-  }
-
-  .region-map__item:hover { transform: translateY(-2px); }
-
-  .region-map__item.is-active {
-    border-color: var(--brand);
-    background: var(--brand-light);
-  }
-
-  .region-map__icon { font-size: 1.5rem; }
-
-  .region-map__name {
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .region-map__states {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-  }
-
-  .region-detail {
-    background: var(--surface);
+  /* ---------- Coverage map ---------- */
+  .map-embed {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 28px;
+    overflow: hidden;
     box-shadow: var(--shadow);
+    line-height: 0;
   }
 
-  .region-detail__head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 6px;
-  }
-
-  .region-detail__head .icon {
-    font-size: 1.8rem;
-  }
-
-  .region-detail__head h3 {
-    margin: 0;
-    font-size: 1.35rem;
-  }
-
-  .region-detail__states {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin: 0 0 6px;
-  }
-
-  .region-detail__blurb {
-    color: var(--text-muted);
-    margin: 0 0 24px;
-  }
-
-  .region-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
+  .map-embed iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
   }
 
   /* image-slot component styling */
@@ -729,7 +654,7 @@
 
     <nav data-nav aria-label="Navegação principal">
       <a href="#servicos">Serviços</a>
-      <a href="#regioes">Regiões</a>
+      <a href="#regioes">Onde atuamos</a>
       <a href="#confianca">Depoimentos</a>
       <a href="#contato" class="nav-cta">Fale conosco</a>
     </nav>
@@ -746,18 +671,18 @@
   <section class="hero">
     <div class="container hero__grid">
       <div>
-        <span class="eyebrow">Distribuição ortopédica nacional</span>
-        <h1>Produtos ortopédicos com <span>presença em todo o Brasil</span></h1>
+        <span class="eyebrow">Distribuição ortopédica em MG e ES</span>
+        <h1>Produtos ortopédicos com <span>presença em Minas Gerais e Espírito Santo</span></h1>
         <p class="lead">
           A Orteconte conecta clínicas, hospitais e profissionais de saúde a equipamentos
-          e produtos ortopédicos de qualidade, com logística regional e suporte técnico dedicado.
+          e produtos ortopédicos de qualidade, com logística local e suporte técnico dedicado.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#regioes">Ver cobertura por região</a>
+          <a class="btn btn--primary" href="#regioes">Ver área de cobertura</a>
           <a class="btn btn--ghost" href="#contato">Falar com um especialista</a>
         </div>
         <div class="hero__stats">
-          <div class="stat"><strong>5</strong><span>regiões atendidas</span></div>
+          <div class="stat"><strong>2</strong><span>estados atendidos</span></div>
           <div class="stat"><strong>+120</strong><span>parceiros clínicos</span></div>
           <div class="stat"><strong>24h</strong><span>suporte técnico</span></div>
         </div>
@@ -783,8 +708,8 @@
       <div class="services-grid">
         <div class="service-card" data-reveal>
           <div class="service-card__icon" aria-hidden="true">🚚</div>
-          <h3>Distribuição regional</h3>
-          <p>Centros logísticos estrategicamente posicionados para reduzir prazos de entrega em todo o país.</p>
+          <h3>Distribuição local</h3>
+          <p>Centro logístico estrategicamente posicionado para reduzir prazos de entrega em Minas Gerais e Espírito Santo.</p>
         </div>
         <div class="service-card" data-reveal>
           <div class="service-card__icon" aria-hidden="true">🦿</div>
@@ -805,21 +730,22 @@
     </div>
   </section>
 
-  <!-- Region map -->
+  <!-- Coverage map -->
   <section id="regioes">
-    <div class="container region-section__layout">
-      <div class="section-head" data-reveal style="margin-bottom: 8px;">
-        <span class="eyebrow">Cobertura nacional</span>
-        <h2>Escolha uma região e veja nossa atuação</h2>
-        <p>A Orteconte está presente nas cinco regiões do Brasil, com parceiros e representantes locais.</p>
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Onde atuamos</span>
+        <h2>Presença em Minas Gerais e Espírito Santo</h2>
+        <p>Atendimento direto a clínicas e hospitais na Zona da Mata mineira e no sul do Espírito Santo, com representantes locais.</p>
       </div>
 
-      <div data-reveal>
-        <region-map selected="sudeste"></region-map>
-      </div>
-
-      <div class="region-detail" data-reveal id="region-detail">
-        <!-- Preenchido dinamicamente via JS -->
+      <div class="map-embed" data-reveal>
+        <iframe
+          src="https://www.google.com/maps?q=Manhua%C3%A7u,+MG&z=8&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa da área de cobertura da Orteconte em Minas Gerais e Espírito Santo">
+        </iframe>
       </div>
     </div>
   </section>
@@ -829,22 +755,22 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Quem confia na Orteconte</span>
-        <h2>Parceiros em todo o território nacional</h2>
+        <h2>Parceiros em Minas Gerais e Espírito Santo</h2>
         <p>Clínicas e hospitais que contam com a Orteconte para manter seus estoques sempre completos.</p>
       </div>
 
       <div class="trust-grid">
         <div class="trust-card" data-reveal>
           <p class="quote">"A Orteconte reduziu nosso tempo de reposição de produtos em quase metade. Suporte muito atencioso."</p>
-          <p class="who">Clínica de Reabilitação — Sudeste</p>
+          <p class="who">Clínica de Reabilitação — Juiz de Fora, MG</p>
         </div>
         <div class="trust-card" data-reveal>
-          <p class="quote">"Mesmo estando no interior do Nordeste, sempre recebemos os pedidos no prazo combinado."</p>
-          <p class="who">Hospital Regional — Nordeste</p>
+          <p class="quote">"Mesmo estando no interior do Espírito Santo, sempre recebemos os pedidos no prazo combinado."</p>
+          <p class="who">Hospital Regional — Cachoeiro de Itapemirim, ES</p>
         </div>
         <div class="trust-card" data-reveal>
           <p class="quote">"Equipe técnica muito preparada para tirar dúvidas sobre órteses e próteses específicas."</p>
-          <p class="who">Centro Ortopédico — Sul</p>
+          <p class="who">Centro Ortopédico — Governador Valadares, MG</p>
         </div>
       </div>
     </div>
@@ -865,14 +791,14 @@
             <span class="icon" aria-hidden="true">📍</span>
             <div>
               <h4>Sede e distribuição</h4>
-              <p>São Paulo — SP, com unidades regionais nas cinco regiões do Brasil.</p>
+              <p>Manhuaçu — MG, com atendimento em Minas Gerais e Espírito Santo.</p>
             </div>
           </div>
           <div class="contact-info__item">
             <span class="icon" aria-hidden="true">📞</span>
             <div>
               <h4>Telefone</h4>
-              <p>(11) 4000-0000</p>
+              <p>(33) 3271-1000</p>
             </div>
           </div>
           <div class="contact-info__item">
@@ -920,7 +846,7 @@
     </a>
     <nav aria-label="Links do rodapé">
       <a href="#servicos">Serviços</a>
-      <a href="#regioes">Regiões</a>
+      <a href="#regioes">Onde atuamos</a>
       <a href="#confianca">Depoimentos</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -932,38 +858,7 @@
 <div data-toast-container aria-live="polite"></div>
 
 <script type="module" src="./image-slot.js"></script>
-<script type="module" src="./region-map.js"></script>
 <script type="module" src="./support.js"></script>
-<script type="module">
-  import { REGIONS } from "./region-map.js";
-
-  const detail = document.getElementById("region-detail");
-  const map = document.querySelector("region-map");
-
-  function renderRegion(region) {
-    detail.innerHTML = `
-      <div class="region-detail__head">
-        <span class="icon" aria-hidden="true">${region.icon}</span>
-        <h3>${region.name}</h3>
-      </div>
-      <p class="region-detail__states">${region.states}</p>
-      <p class="region-detail__blurb">${region.blurb}</p>
-      <div class="region-gallery">
-        <image-slot label="Unidade regional — ${region.name}" icon="🏥"></image-slot>
-        <image-slot label="Equipe local" icon="🩺"></image-slot>
-        <image-slot label="Produtos em estoque" icon="🦴"></image-slot>
-        <image-slot label="Clínicas parceiras" icon="🤝"></image-slot>
-      </div>
-    `;
-  }
-
-  map.addEventListener("region-change", (event) => renderRegion(event.detail));
-
-  // Renderiza a região inicial assim que o componente estiver pronto.
-  queueMicrotask(() => {
-    renderRegion(REGIONS.find((r) => r.id === map.selected) || REGIONS[0]);
-  });
-</script>
 
 </body>
 </html>
