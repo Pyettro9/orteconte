@@ -3,42 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orteconte — Soluções Ortopédicas em Minas Gerais e Espírito Santo</title>
-<meta name="description" content="Orteconte distribui produtos e equipamentos ortopédicos em Minas Gerais e Espírito Santo, com suporte técnico especializado e atendimento próximo de clínicas e hospitais.">
+<title>Orteconte Contabilidade — Tudo Conta</title>
+<meta name="description" content="Há mais de 55 anos ajudando empresas em Minas Gerais e Espírito Santo com contabilidade completa, BPO financeiro, certificado digital e conformidade fiscal, trabalhista e processual.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    color-scheme: light dark;
-    --bg: #f7f8fb;
+    color-scheme: light;
+    --bg: #f5f7fa;
     --surface: #ffffff;
-    --surface-muted: #eef1f7;
-    --text: #1b2333;
-    --text-muted: #5a6478;
-    --border: #e1e5ee;
-    --brand: #1f6f78;
-    --brand-dark: #144951;
-    --brand-light: #e4f3f2;
-    --accent: #e8823c;
-    --shadow: 0 20px 45px -25px rgba(20, 30, 60, 0.35);
+    --surface-muted: #f5f7fa;
+    --text: #1b2430;
+    --text-muted: #5b6472;
+    --border: #e4e7ec;
+    --navy: #0b1f3a;
+    --navy-dark: #0a1830;
+    --petrol: #12566b;
+    --petrol-light: #e4eef1;
+    --gold: #f0b429;
+    --gold-dark: #c9910f;
+    --gold-tint: #fbf0da;
+    --on-navy: #ffffff;
+    --on-navy-muted: #aeb9c9;
+    --shadow: 0 20px 45px -25px rgba(11, 31, 58, 0.35);
     --radius-lg: 20px;
     --radius-md: 14px;
-    --radius-sm: 8px;
-    --font: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0f1420;
-      --surface: #161d2c;
-      --surface-muted: #1d2536;
-      --text: #eef1f7;
-      --text-muted: #a3aec4;
-      --border: #2a3244;
-      --brand: #4fb8ae;
-      --brand-dark: #8fd9cf;
-      --brand-light: #16302f;
-      --accent: #f0975a;
-      --shadow: 0 20px 45px -25px rgba(0, 0, 0, 0.6);
-    }
+    --radius-sm: 10px;
+    --font: "Work Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "Outfit", var(--font);
   }
 
   * { box-sizing: border-box; }
@@ -56,6 +49,10 @@
   img { max-width: 100%; display: block; }
 
   a { color: inherit; }
+
+  h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 800; }
+
+  ::selection { background: var(--gold); color: var(--navy); }
 
   .container {
     width: 100%;
@@ -77,16 +74,14 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--surface) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
+    background: var(--navy);
   }
 
   .site-header__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 16px;
+    padding-block: 14px;
     gap: 16px;
   }
 
@@ -95,20 +90,38 @@
     align-items: center;
     gap: 10px;
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     letter-spacing: -0.01em;
     text-decoration: none;
-    color: var(--text);
+    color: #fff;
+    font-family: var(--font-heading);
   }
 
   .logo__mark {
     display: grid;
     place-items: center;
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-    color: #fff;
-    font-size: 1.1rem;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--petrol), var(--navy) 70%);
+    color: var(--gold);
+    font-size: 1.05rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .logo__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo__slogan {
+    font-family: var(--font);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
   }
 
   nav[data-nav] {
@@ -119,13 +132,13 @@
 
   nav[data-nav] a {
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--on-navy-muted);
     transition: color 0.2s ease;
   }
 
-  nav[data-nav] a:hover { color: var(--brand); }
+  nav[data-nav] a:hover { color: #fff; }
 
   .nav-cta {
     display: inline-flex;
@@ -133,20 +146,23 @@
     gap: 8px;
     padding: 10px 18px;
     border-radius: 999px;
-    background: var(--brand);
-    color: #fff !important;
+    background: var(--gold);
+    color: var(--navy) !important;
     font-weight: 700;
     font-size: 0.9rem;
+    transition: background 0.15s ease;
   }
+
+  .nav-cta:hover { background: var(--gold-dark); }
 
   .nav-toggle {
     display: none;
     background: none;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: var(--radius-sm);
     width: 42px; height: 42px;
     cursor: pointer;
-    color: var(--text);
+    color: #fff;
     font-size: 1.2rem;
   }
 
@@ -161,8 +177,8 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 4px;
-      background: var(--surface);
-      border-bottom: 0 solid var(--border);
+      background: var(--navy);
+      border-bottom: 0 solid rgba(255, 255, 255, 0.12);
       padding: 0 24px;
       max-height: 0;
       overflow: hidden;
@@ -178,7 +194,7 @@
     nav[data-nav] a {
       width: 100%;
       padding: 10px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .nav-cta { margin-top: 8px; }
@@ -186,18 +202,9 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    padding-block: 72px 56px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: -20% -10% auto;
-    height: 480px;
-    background: radial-gradient(60% 60% at 30% 20%, var(--brand-light), transparent 70%);
-    z-index: -1;
+    padding-block: 88px 64px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 55%, var(--petrol) 100%);
+    color: #fff;
   }
 
   .hero__grid {
@@ -217,8 +224,8 @@
     gap: 8px;
     padding: 6px 14px;
     border-radius: 999px;
-    background: var(--brand-light);
-    color: var(--brand-dark);
+    background: var(--gold-tint);
+    color: var(--gold-dark);
     font-weight: 700;
     font-size: 0.8rem;
     letter-spacing: 0.02em;
@@ -226,18 +233,23 @@
     margin-bottom: 18px;
   }
 
+  .hero .eyebrow {
+    background: rgba(240, 180, 41, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(240, 180, 41, 0.4);
+  }
+
   .hero h1 {
     font-size: clamp(2.1rem, 4vw, 3.1rem);
     line-height: 1.12;
     letter-spacing: -0.02em;
     margin: 0 0 18px;
+    color: #fff;
   }
-
-  .hero h1 span { color: var(--brand); }
 
   .hero p.lead {
     font-size: 1.08rem;
-    color: var(--text-muted);
+    color: var(--on-navy-muted);
     max-width: 46ch;
     margin: 0 0 30px;
   }
@@ -261,19 +273,28 @@
     text-decoration: none;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
 
   .btn:hover { transform: translateY(-2px); }
 
   .btn--primary {
-    background: var(--brand);
-    color: #fff;
+    background: var(--gold);
+    color: var(--navy);
     box-shadow: var(--shadow);
   }
 
+  .btn--primary:hover { background: var(--gold-dark); }
+
   .btn--ghost {
     background: transparent;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #fff;
+  }
+
+  .btn--ghost:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+  section:not(.hero):not(.about) .btn--ghost {
     border-color: var(--border);
     color: var(--text);
   }
@@ -286,14 +307,15 @@
 
   .stat strong {
     display: block;
+    font-family: var(--font-heading);
     font-size: 1.6rem;
-    color: var(--brand-dark);
+    color: var(--gold);
     letter-spacing: -0.01em;
   }
 
   .stat span {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--on-navy-muted);
   }
 
   .hero__visual {
@@ -307,7 +329,7 @@
   }
 
   /* ---------- Section shell ---------- */
-  section { padding-block: 76px; }
+  section { padding-block: 88px; }
 
   .section-head {
     max-width: 640px;
@@ -340,10 +362,7 @@
   }
 
   /* ---------- Services ---------- */
-  .services {
-    background: var(--surface);
-    border-block: 1px solid var(--border);
-  }
+  .services { background: var(--surface); }
 
   .services-grid {
     display: grid;
@@ -356,6 +375,12 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 26px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
   }
 
   .service-card__icon {
@@ -363,8 +388,8 @@
     display: grid;
     place-items: center;
     border-radius: var(--radius-sm);
-    background: var(--brand-light);
-    color: var(--brand-dark);
+    background: var(--petrol);
+    color: #fff;
     font-size: 1.4rem;
     margin-bottom: 16px;
   }
@@ -372,6 +397,7 @@
   .service-card h3 {
     margin: 0 0 8px;
     font-size: 1.08rem;
+    color: var(--navy);
   }
 
   .service-card p {
@@ -380,27 +406,79 @@
     font-size: 0.94rem;
   }
 
+  /* ---------- About / Sobre ---------- */
+  .about {
+    background: var(--navy);
+    color: #fff;
+  }
+
+  .about .eyebrow {
+    background: rgba(240, 180, 41, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(240, 180, 41, 0.4);
+  }
+
+  .about .section-head { text-align: left; margin: 0; max-width: none; }
+
+  .about h2 { color: #fff; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 48px;
+    align-items: center;
+  }
+
+  .about-copy {
+    color: var(--on-navy-muted);
+    max-width: 48ch;
+    margin: 16px 0 32px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 24px 32px;
+  }
+
+  .stats-grid .stat strong { font-size: 1.9rem; }
+
+  .about-map {
+    margin-top: 64px;
+  }
+
+  .about-map h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 0 6px;
+  }
+
+  .about-map > p {
+    color: var(--on-navy-muted);
+    margin: 0 0 24px;
+  }
+
   /* ---------- Coverage map ---------- */
   .map-embed {
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
     line-height: 0;
+    background: var(--navy-dark);
+    padding: 10px;
   }
 
   .map-embed iframe {
     width: 100%;
-    height: 420px;
+    height: 400px;
     border: 0;
+    border-radius: var(--radius-md);
     display: block;
   }
 
   /* image-slot component styling */
-  .image-slot {
-    margin: 0;
-    display: block;
-  }
+  .image-slot { margin: 0; display: block; }
 
   .image-slot__frame {
     position: relative;
@@ -408,10 +486,15 @@
     aspect-ratio: var(--ratio, 4/3);
     border-radius: var(--radius-md);
     overflow: hidden;
-    background: linear-gradient(135deg, var(--brand-light), var(--surface-muted));
+    background: linear-gradient(135deg, var(--petrol-light), var(--surface-muted));
     border: 1px dashed var(--border);
     display: grid;
     place-items: center;
+  }
+
+  .about .image-slot__frame {
+    background: linear-gradient(135deg, rgba(240, 180, 41, 0.14), rgba(255, 255, 255, 0.06));
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
   .image-slot--filled .image-slot__frame {
@@ -437,34 +520,117 @@
     text-align: center;
   }
 
-  /* ---------- Testimonials / trust ---------- */
-  .trust {
-    background: var(--surface);
-    border-block: 1px solid var(--border);
-  }
+  .about .image-slot__label { color: var(--on-navy-muted); }
 
-  .trust-grid {
+  .avatar-slot { width: 56px; flex-shrink: 0; }
+  .avatar-slot .image-slot__frame { border-radius: 50%; }
+  .avatar-slot .image-slot__label { display: none; }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials { background: var(--surface-muted); }
+
+  .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
   }
 
-  .trust-card {
-    background: var(--surface-muted);
+  .testimonial-card {
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 24px;
+    padding: 26px;
   }
 
-  .trust-card p.quote {
-    margin: 0 0 16px;
-    font-size: 0.98rem;
+  .testimonial-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
   }
 
-  .trust-card .who {
-    font-size: 0.85rem;
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+
+  .testimonial-role {
+    font-size: 0.82rem;
     color: var(--text-muted);
   }
+
+  .stars {
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .testimonial-card p.quote {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ---------- Blog ---------- */
+  .blog { background: var(--surface); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+  .blog-card .image-slot__frame { border-radius: 0; }
+
+  .blog-card__body { padding: 22px; }
+
+  .blog-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    background: var(--petrol-light);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .blog-card h3 {
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin: 14px 0 8px;
+    line-height: 1.35;
+  }
+
+  .blog-card p {
+    margin: 0 0 16px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
+  .blog-meta .date { color: var(--text-muted); }
+  .blog-meta .more { color: var(--gold-dark); font-weight: 700; }
 
   /* ---------- Contact ---------- */
   .contact-grid {
@@ -495,13 +661,14 @@
     display: grid;
     place-items: center;
     border-radius: var(--radius-sm);
-    background: var(--brand-light);
-    color: var(--brand-dark);
+    background: var(--petrol-light);
+    color: var(--petrol);
   }
 
   .contact-info__item h4 {
     margin: 0 0 4px;
     font-size: 0.95rem;
+    color: var(--navy);
   }
 
   .contact-info__item p {
@@ -543,7 +710,7 @@
   .field input:focus,
   .field textarea:focus {
     outline: none;
-    border-color: var(--brand);
+    border-color: var(--gold-dark);
   }
 
   .field input[aria-invalid="true"],
@@ -553,36 +720,91 @@
 
   /* ---------- Footer ---------- */
   footer.site-footer {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    padding-block: 40px;
+    background: var(--navy-dark);
+    color: #fff;
+    padding-block: 64px 28px;
   }
 
   .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-brand .logo { margin-bottom: 14px; }
+
+  .footer-about {
+    color: var(--on-navy-muted);
+    font-size: 0.92rem;
+    max-width: 280px;
+    margin: 0 0 18px;
+  }
+
+  .social-links { display: flex; gap: 10px; }
+
+  .social-links a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: grid;
+    place-items: center;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .social-links a:hover { background: var(--gold); color: var(--navy); }
+
+  .footer-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 16px;
+  }
+
+  .footer-links, .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--on-navy-muted);
+  }
+
+  .footer-links a:hover, .footer-contact a:hover { color: #fff; }
+
+  .offices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+    gap: 8px 16px;
+  }
+
+  .office {
+    font-size: 0.85rem;
+    color: var(--on-navy-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .office-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .office-dot--gold { background: var(--gold); }
+  .office-dot--petrol { background: var(--petrol); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 22px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-grid nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .footer-grid nav a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .footer-grid nav a:hover { color: var(--brand); }
-
-  small.copy {
-    color: var(--text-muted);
+    gap: 12px;
     font-size: 0.82rem;
+    color: var(--on-navy-muted);
   }
 
   /* ---------- Back to top ---------- */
@@ -593,8 +815,8 @@
     width: 46px; height: 46px;
     border-radius: 50%;
     border: none;
-    background: var(--brand);
-    color: #fff;
+    background: var(--gold);
+    color: var(--navy);
     font-size: 1.1rem;
     cursor: pointer;
     display: grid;
@@ -602,10 +824,12 @@
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.15s ease;
     box-shadow: var(--shadow);
     z-index: 60;
   }
+
+  [data-back-to-top]:hover { background: var(--gold-dark); }
 
   [data-back-to-top].is-visible {
     opacity: 1;
@@ -625,8 +849,8 @@
   }
 
   .toast {
-    background: var(--text);
-    color: var(--bg);
+    background: var(--navy);
+    color: #fff;
     padding: 12px 18px;
     border-radius: var(--radius-sm);
     font-size: 0.88rem;
@@ -647,16 +871,21 @@
 
 <header class="site-header">
   <div class="container site-header__bar">
-    <a class="logo" href="#top">
+    <a class="logo" href="#home">
       <span class="logo__mark" aria-hidden="true">O</span>
-      Orteconte
+      <span class="logo__text">
+        Orteconte
+        <span class="logo__slogan">Tudo Conta</span>
+      </span>
     </a>
 
     <nav data-nav aria-label="Navegação principal">
+      <a href="#home">Home</a>
+      <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
-      <a href="#regioes">Onde atuamos</a>
-      <a href="#confianca">Depoimentos</a>
-      <a href="#contato" class="nav-cta">Fale conosco</a>
+      <a href="#blog">Blog</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5533998765432" target="_blank" rel="noopener" class="nav-cta">Fale conosco</a>
     </nav>
 
     <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
@@ -665,33 +894,33 @@
   </div>
 </header>
 
-<main id="top">
+<main>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container hero__grid">
       <div>
-        <span class="eyebrow">Distribuição ortopédica em MG e ES</span>
-        <h1>Produtos ortopédicos com <span>presença em Minas Gerais e Espírito Santo</span></h1>
+        <span class="eyebrow">Desde 1968</span>
+        <h1>Há mais de 55 anos transformando empresas</h1>
         <p class="lead">
-          A Orteconte conecta clínicas, hospitais e profissionais de saúde a equipamentos
-          e produtos ortopédicos de qualidade, com logística local e suporte técnico dedicado.
+          Contabilidade completa, BPO financeiro e conformidade fiscal, trabalhista e processual
+          para negócios em mais de 100 municípios de Minas Gerais e Espírito Santo.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#regioes">Ver área de cobertura</a>
-          <a class="btn btn--ghost" href="#contato">Falar com um especialista</a>
+          <a class="btn btn--primary" href="#servicos">Agende uma consultoria</a>
+          <a class="btn btn--ghost" href="https://wa.me/5533998765432" target="_blank" rel="noopener">Fale no WhatsApp</a>
         </div>
         <div class="hero__stats">
-          <div class="stat"><strong>2</strong><span>estados atendidos</span></div>
-          <div class="stat"><strong>+120</strong><span>parceiros clínicos</span></div>
-          <div class="stat"><strong>24h</strong><span>suporte técnico</span></div>
+          <div class="stat"><strong>55+</strong><span>anos de mercado</span></div>
+          <div class="stat"><strong>10</strong><span>escritórios físicos</span></div>
+          <div class="stat"><strong>3.500+</strong><span>clientes ativos</span></div>
         </div>
       </div>
 
       <div class="hero__visual">
-        <image-slot label="Unidade central de distribuição" icon="🏥" ratio="16/9"></image-slot>
-        <image-slot label="Equipe técnica" icon="🩺"></image-slot>
-        <image-slot label="Linha de produtos" icon="🦴"></image-slot>
+        <image-slot label="Mascote 3D Orteconte" icon="🤓" ratio="16/9"></image-slot>
+        <image-slot label="Equipe em atendimento" icon="🤝"></image-slot>
+        <image-slot label="Escritório Orteconte" icon="🏢"></image-slot>
       </div>
     </div>
   </section>
@@ -701,77 +930,168 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">O que fazemos</span>
-        <h2>Soluções completas para o seu negócio</h2>
-        <p>Da entrega ao pós-venda, cuidamos de cada etapa para que sua clínica tenha os produtos certos, na hora certa.</p>
+        <h2>Serviços feitos para o seu negócio</h2>
+        <p>Do dia a dia contábil à estratégia financeira, cuidamos de cada etapa para que sua empresa cresça com segurança.</p>
       </div>
 
       <div class="services-grid">
         <div class="service-card" data-reveal>
-          <div class="service-card__icon" aria-hidden="true">🚚</div>
-          <h3>Distribuição local</h3>
-          <p>Centro logístico estrategicamente posicionado para reduzir prazos de entrega em Minas Gerais e Espírito Santo.</p>
+          <div class="service-card__icon" aria-hidden="true">🧾</div>
+          <h3>Contabilidade Completa</h3>
+          <p>Abertura de empresas, troca de contador e contabilidade estratégica para decisões seguras.</p>
         </div>
         <div class="service-card" data-reveal>
-          <div class="service-card__icon" aria-hidden="true">🦿</div>
-          <h3>Equipamentos ortopédicos</h3>
-          <p>Órteses, próteses e equipamentos certificados, selecionados junto a fabricantes de referência.</p>
+          <div class="service-card__icon" aria-hidden="true">💼</div>
+          <h3>BPO Financeiro</h3>
+          <p>Terceirização do financeiro com tecnologia, para ganhar tempo e aumentar a lucratividade.</p>
         </div>
         <div class="service-card" data-reveal>
-          <div class="service-card__icon" aria-hidden="true">🧑‍⚕️</div>
-          <h3>Suporte técnico</h3>
-          <p>Equipe especializada disponível para orientar profissionais na escolha e uso dos produtos.</p>
+          <div class="service-card__icon" aria-hidden="true">🔐</div>
+          <h3>Certificado Digital</h3>
+          <p>Emissão de certificado digital para pessoa física e jurídica, com atendimento próximo.</p>
         </div>
         <div class="service-card" data-reveal>
-          <div class="service-card__icon" aria-hidden="true">📦</div>
-          <h3>Gestão de estoque</h3>
-          <p>Reposição programada e acompanhamento contínuo para clínicas e hospitais parceiros.</p>
+          <div class="service-card__icon" aria-hidden="true">⚖️</div>
+          <h3>Depto. Fiscal, Trabalhista e Processual</h3>
+          <p>Conformidade legal completa, prevenindo passivos e problemas antes que aconteçam.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Coverage map -->
-  <section id="regioes">
+  <!-- About / Sobre -->
+  <section class="about" id="sobre">
     <div class="container">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow">Onde atuamos</span>
-        <h2>Presença em Minas Gerais e Espírito Santo</h2>
-        <p>Atendimento direto a clínicas e hospitais na Zona da Mata mineira e no sul do Espírito Santo, com representantes locais.</p>
+      <div class="about-grid">
+        <div>
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">Desde 1968</span>
+            <h2>Uma trajetória de mais de 55 anos</h2>
+          </div>
+          <p class="about-copy" data-reveal>
+            A Orteconte nasceu em 1968 e cresceu junto com os municípios que atende. Hoje somos uma
+            equipe presente em cerca de 10 escritórios físicos, unindo atendimento próximo e
+            tecnologia para simplificar a rotina contábil, fiscal e financeira de milhares de empresas.
+          </p>
+          <div class="stats-grid" data-reveal>
+            <div class="stat"><strong>55+</strong><span>anos de mercado</span></div>
+            <div class="stat"><strong>10</strong><span>escritórios físicos</span></div>
+            <div class="stat"><strong>100+</strong><span>municípios atendidos</span></div>
+            <div class="stat"><strong>3.500+</strong><span>clientes ativos</span></div>
+          </div>
+        </div>
+
+        <image-slot data-reveal label="Equipe Orteconte em ambiente corporativo" icon="👥" ratio="4/3"></image-slot>
       </div>
 
-      <div class="map-embed" data-reveal>
-        <iframe
-          src="https://www.google.com/maps?q=Manhua%C3%A7u,+MG&z=8&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa da área de cobertura da Orteconte em Minas Gerais e Espírito Santo">
-        </iframe>
+      <div class="about-map">
+        <h3 data-reveal>Presença em Minas Gerais e Espírito Santo</h3>
+        <p data-reveal>Mais de 100 municípios atendidos a partir de 10 escritórios físicos.</p>
+        <div class="map-embed" data-reveal>
+          <iframe
+            src="https://www.google.com/maps?q=Manhua%C3%A7u,+MG&z=8&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa da área de cobertura da Orteconte em Minas Gerais e Espírito Santo">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust / testimonials -->
-  <section class="trust" id="confianca">
+  <!-- Testimonials -->
+  <section class="testimonials" id="depoimentos">
     <div class="container">
       <div class="section-head" data-reveal>
-        <span class="eyebrow">Quem confia na Orteconte</span>
-        <h2>Parceiros em Minas Gerais e Espírito Santo</h2>
-        <p>Clínicas e hospitais que contam com a Orteconte para manter seus estoques sempre completos.</p>
+        <span class="eyebrow">Nossa equipe</span>
+        <h2>Quem faz a Orteconte todos os dias</h2>
+        <p>O que nosso time diz sobre trabalhar aqui.</p>
       </div>
 
-      <div class="trust-grid">
-        <div class="trust-card" data-reveal>
-          <p class="quote">"A Orteconte reduziu nosso tempo de reposição de produtos em quase metade. Suporte muito atencioso."</p>
-          <p class="who">Clínica de Reabilitação — Juiz de Fora, MG</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-reveal>
+          <div class="testimonial-head">
+            <image-slot class="avatar-slot" icon="🙂" ratio="1/1"></image-slot>
+            <div>
+              <div class="testimonial-name">Dulcilaine Medeiros</div>
+              <div class="testimonial-role">Auxiliar Contábil · Manhumirim</div>
+            </div>
+          </div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote">"A empresa tem um ambiente profissional e organizado, é uma empresa verdadeiramente humana, que valoriza as pessoas e confiam no trabalho que realizamos como colaboradores. Sou grata e tenho muito orgulho de fazer parte dessa equipe!"</p>
         </div>
-        <div class="trust-card" data-reveal>
-          <p class="quote">"Mesmo estando no interior do Espírito Santo, sempre recebemos os pedidos no prazo combinado."</p>
-          <p class="who">Hospital Regional — Cachoeiro de Itapemirim, ES</p>
+        <div class="testimonial-card" data-reveal>
+          <div class="testimonial-head">
+            <image-slot class="avatar-slot" icon="🙂" ratio="1/1"></image-slot>
+            <div>
+              <div class="testimonial-name">Kamilly Silva</div>
+              <div class="testimonial-role">Auxiliar Fiscal · Chalé</div>
+            </div>
+          </div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote">"Aprendemos bastante no dia a dia e com isso sentimos que o esforço é reconhecido. Dá gosto de fazer parte desta equipe e todo esforço vale a pena."</p>
         </div>
-        <div class="trust-card" data-reveal>
-          <p class="quote">"Equipe técnica muito preparada para tirar dúvidas sobre órteses e próteses específicas."</p>
-          <p class="who">Centro Ortopédico — Governador Valadares, MG</p>
+        <div class="testimonial-card" data-reveal>
+          <div class="testimonial-head">
+            <image-slot class="avatar-slot" icon="🙂" ratio="1/1"></image-slot>
+            <div>
+              <div class="testimonial-name">Hidria Dias</div>
+              <div class="testimonial-role">Auxiliar de Processos · Manhuaçu</div>
+            </div>
+          </div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p class="quote">"Trabalhar na Orteconte Contabilidade é ter a oportunidade de crescer profissionalmente e adquirir conhecimento não só na área contábil."</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Blog</span>
+        <h2>Informações que geram decisões</h2>
+        <p>As principais atualizações do mundo contábil.</p>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card" data-reveal>
+          <image-slot icon="📰" ratio="16/9"></image-slot>
+          <div class="blog-card__body">
+            <span class="blog-tag">Tributário</span>
+            <h3>Reforma tributária: o que muda para pequenas e médias empresas</h3>
+            <p>Os principais pontos da reforma e como preparar sua empresa para as novas regras.</p>
+            <div class="blog-meta">
+              <span class="date">Jul 2026</span>
+              <span class="more">Ler mais →</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-reveal>
+          <image-slot icon="📰" ratio="16/9"></image-slot>
+          <div class="blog-card__body">
+            <span class="blog-tag">Trabalhista</span>
+            <h3>eSocial: as obrigações que toda empresa precisa acompanhar em 2026</h3>
+            <p>Um panorama das mudanças recentes e dos prazos que exigem atenção do departamento pessoal.</p>
+            <div class="blog-meta">
+              <span class="date">Jun 2026</span>
+              <span class="more">Ler mais →</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-reveal>
+          <image-slot icon="📰" ratio="16/9"></image-slot>
+          <div class="blog-card__body">
+            <span class="blog-tag">Gestão</span>
+            <h3>BPO financeiro: por que terceirizar pode aumentar a lucratividade</h3>
+            <p>Como a terceirização do financeiro libera tempo da gestão e melhora o controle do caixa.</p>
+            <div class="blog-meta">
+              <span class="date">Mai 2026</span>
+              <span class="more">Ler mais →</span>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -781,7 +1101,7 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <span class="eyebrow">Fale conosco</span>
-        <h2>Vamos conversar sobre a sua região</h2>
+        <h2>Vamos conversar sobre a sua empresa</h2>
         <p>Preencha o formulário e um especialista da Orteconte entrará em contato.</p>
       </div>
 
@@ -790,29 +1110,29 @@
           <div class="contact-info__item">
             <span class="icon" aria-hidden="true">📍</span>
             <div>
-              <h4>Sede e distribuição</h4>
-              <p>Manhuaçu — MG, com atendimento em Minas Gerais e Espírito Santo.</p>
+              <h4>Sede</h4>
+              <p>Manhuaçu — MG, com 10 escritórios em Minas Gerais e Espírito Santo.</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <span class="icon" aria-hidden="true">💬</span>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://wa.me/5533998765432" target="_blank" rel="noopener">(33) 99876-5432</a></p>
             </div>
           </div>
           <div class="contact-info__item">
             <span class="icon" aria-hidden="true">📞</span>
             <div>
               <h4>Telefone</h4>
-              <p>(33) 3271-1000</p>
+              <p><a href="tel:+553332711000">(33) 3271-1000</a></p>
             </div>
           </div>
           <div class="contact-info__item">
             <span class="icon" aria-hidden="true">✉️</span>
             <div>
               <h4>E-mail</h4>
-              <p>contato@orteconte.com.br</p>
-            </div>
-          </div>
-          <div class="contact-info__item">
-            <span class="icon" aria-hidden="true">🕒</span>
-            <div>
-              <h4>Atendimento</h4>
-              <p>Segunda a sexta, 8h às 18h — suporte técnico 24h para parceiros.</p>
+              <p><a href="mailto:contato@orteconte.com.br">contato@orteconte.com.br</a></p>
             </div>
           </div>
         </div>
@@ -839,18 +1159,70 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <a class="logo" href="#top">
-      <span class="logo__mark" aria-hidden="true">O</span>
-      Orteconte
-    </a>
-    <nav aria-label="Links do rodapé">
-      <a href="#servicos">Serviços</a>
-      <a href="#regioes">Onde atuamos</a>
-      <a href="#confianca">Depoimentos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <small class="copy">© <span data-current-year>2026</span> Orteconte. Todos os direitos reservados.</small>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#home">
+          <span class="logo__mark" aria-hidden="true">O</span>
+          <span class="logo__text">
+            Orteconte
+            <span class="logo__slogan">Tudo Conta</span>
+          </span>
+        </a>
+        <p class="footer-about">Mais de 55 anos cuidando da contabilidade, do financeiro e da conformidade legal de empresas em Minas Gerais e Espírito Santo.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11c0-1.5 1-2 2-2s2 .8 2 2v5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v3h2v8h3v-8h3l1-3h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Navegação</h4>
+        <nav class="footer-links" aria-label="Links do rodapé">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#blog">Blog</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contato</h4>
+        <div class="footer-contact">
+          <a href="https://wa.me/5533998765432" target="_blank" rel="noopener">WhatsApp: (33) 99876-5432</a>
+          <a href="tel:+553332711000">Telefone: (33) 3271-1000</a>
+          <a href="mailto:contato@orteconte.com.br">contato@orteconte.com.br</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Escritórios</h4>
+        <div class="offices-grid">
+          <div class="office"><span class="office-dot office-dot--gold"></span>Manhuaçu · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Manhumirim · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Caratinga · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Ipanema · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Chalé · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Simonésia · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Alto Jequitibá · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Reduto · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Santa Margarida · MG</div>
+          <div class="office"><span class="office-dot office-dot--petrol"></span>Iúna · ES</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span data-current-year>2026</span> Orteconte Contabilidade — Tudo Conta</span>
+      <span>Manhuaçu · MG</span>
+    </div>
   </div>
 </footer>
 
